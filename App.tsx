@@ -87,7 +87,8 @@ export default function App() {
   function renderItem({ item }: {item: Task}) {
     return (
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>{item.title}</Text>;
+        <Text style={styles.text}>{item.title}</Text>
+        <Text style={styles.text}>{item.date.toLocaleDateString()}</Text>
       </View>
     ) 
   }
