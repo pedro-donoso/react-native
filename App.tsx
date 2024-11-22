@@ -1,6 +1,13 @@
 import React from "react";
-import {Text,View,TextInput,TouchableOpacity,FlatList} from "react-native";
-import styles from './Styles'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
+import styles from "./Styles";
+import RenderItem from "./RenderItem";
 
 //tareas
 const tasks = [
@@ -27,6 +34,15 @@ export interface Task {
   date: Date;
 }
 
+export default function App() {
+  const markDone = () => {
+    console.log('markdone');
+  };
+
+  const deleteFunction = () => {
+    console.log('delete');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
@@ -37,7 +53,16 @@ export interface Task {
         </TouchableOpacity>
       </View>
       <View style={styles.scrollContainer}>
-        <FlatList renderItem={renderItem} data={tasks} />
+        <FlatList
+          renderItem={({ item }) => (
+            <RenderItem
+              item={item}
+              deleteFunction={deleteFunction}
+              markDone={markDone}
+            />
+          )}
+          data={tasks}
+        />
       </View>
     </View>
   );

@@ -5,12 +5,18 @@ import {Task} from './App';
 
 interface ItemProps {
     item: Task;
+    markDone: () => void;
+    deleteFunction: () => void;
 }
 
-export default function RenderItem({item}) {
+export default function RenderItem({
+    item, 
+    markDone, 
+    deleteFunction
+}: ItemProps) {
     return (
       <View style={styles.itemContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={markDone}>
           <Text style={item.done ? styles.textDone : styles.text}>
             {item.title}
           </Text>
@@ -21,7 +27,7 @@ export default function RenderItem({item}) {
         {
           //condicional
           item.done && (
-            <TouchableOpacity style={styles.removeButton}>
+            <TouchableOpacity onPress={deleteFunction} style={styles.removeButton}>
               <Text style={styles.whitetext}>Eliminar</Text>
             </TouchableOpacity>
           )
