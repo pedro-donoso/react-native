@@ -31,14 +31,20 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor: '#6f6f6f',
     borderWidth: 1,
-    width: Dimensions.get('screen').width * 0.6
+    width: Dimensions.get('screen').width * 0.6,
+    borderRadius: 10,
+    paddingLeft: 10
   },
   inputContainer: {
     margin: 20,
     flexDirection: 'row'
   },
   addButton: {
-    backgroundColor: '#5897fb'
+    width: Dimensions.get('screen').width * 0.3,
+    backgroundColor: '#5897fb',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10
   }
 });
 
@@ -49,7 +55,7 @@ export default function App() {
       <View style={styles.inputContainer}>
           <TextInput style={styles.textInput} />
           <TouchableOpacity style={styles.addButton}>
-            <Text>Agregar</Text>
+            <Text style={styles.whitetext}>Agregar</Text>
           </TouchableOpacity>
       </View>
     </View>
