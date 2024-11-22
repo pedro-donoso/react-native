@@ -61,17 +61,23 @@ const tasks = [
     date: new Date()
   },
   {
-    title: 'Alimentar al gato',
+    title: 'Salir a correr',
     done: false,
     date: new Date()
   }
 ];
 
-function renderItem({item}) {
-  return <Text>Esto es un item</Text>;
+interface Task {
+  title: string;
+  done: Boolean;
+  date: Date;
 }
 
 export default function App() {
+  function renderItem({item}) {
+    return <Text style={styles.text}>{item.title}</Text>;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
