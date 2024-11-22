@@ -31,16 +31,17 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor: '#6f6f6f',
     borderWidth: 1,
-    width: Dimensions.get('screen').width * 0.6,
+    width: Dimensions.get('screen').width * 0.65,
     borderRadius: 10,
     paddingLeft: 10
   },
   inputContainer: {
     margin: 20,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   addButton: {
-    width: Dimensions.get('screen').width * 0.3,
+    width: Dimensions.get('screen').width * 0.25,
     backgroundColor: '#5897fb',
     justifyContent: 'center',
     alignItems: 'center',
@@ -53,7 +54,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
-          <TextInput style={styles.textInput} />
+          <TextInput placeholder='Ingresa nueva tarea' style={styles.textInput} />
           <TouchableOpacity style={styles.addButton}>
             <Text style={styles.whitetext}>Agregar</Text>
           </TouchableOpacity>
