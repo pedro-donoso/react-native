@@ -93,8 +93,8 @@ export default function App() {
     return (
       <View style={styles.itemContainer}>
         <TouchableOpacity>
-          <Text style={styles.text}>{item.title}</Text>
-        <Text style={styles.text}>{item.date.toLocaleDateString()}</Text>
+          <Text style={item.done ? styles.textDone : styles.text}>{item.title}</Text>
+        <Text style={item.done ? styles.textDone : styles.text}>{item.date.toLocaleDateString()}</Text>
         </TouchableOpacity>
         
       </View>
