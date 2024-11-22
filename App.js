@@ -6,10 +6,8 @@ const styles = StyleSheet.create({
 
   container: {
     width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 200,
-    backgroundColor: 'yellow'
+    backgroundColor: 'yellow',
+    padding: 100
   },
 
   title: {
@@ -21,7 +19,7 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello</Text>
+      <Text style={styles.title}>Bienvenidos</Text>
       <StatusBar style="auto" />
     </View>
   );
