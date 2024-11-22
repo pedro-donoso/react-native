@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor: '#6f6f6f',
     borderWidth: 1,
-    width: Dimensions.get('screen').width * 0.65,
+    width: Dimensions.get('screen').width * 0.60,
     borderRadius: 10,
     paddingLeft: 10
   },
@@ -41,11 +41,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   addButton: {
-    width: Dimensions.get('screen').width * 0.25,
+    width: Dimensions.get('screen').width * 0.30,
     backgroundColor: '#5897fb',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10
+    borderRadius: 10,
+    padding: 5
   }
 });
 
