@@ -5,7 +5,8 @@ import {
   Text, View, 
   TextInput, 
   TouchableOpacity ,
-  Dimensions
+  Dimensions,
+  FlatList
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -47,8 +48,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     padding: 5
+  },
+  scrollContainer: {
+
   }
 });
+
+const tasks = [
+  {
+    title: 'Alimentar al perro',
+    done: false,
+    date: new Date()
+  },
+  {
+    title: 'Alimentar al gato',
+    done: false,
+    date: new Date()
+  }
+];
+
+function renderItem({item}) {
+  return <Text>Esto es un item</Text>;
+}
 
 export default function App() {
   return (
@@ -60,6 +81,10 @@ export default function App() {
             <Text style={styles.whitetext}>Agregar</Text>
           </TouchableOpacity>
       </View>
+    <View style={styles.scrollContainer}>
+      <FlatList renderItem={renderItem} data={tasks}
+      />
+    </View>
     </View>
   );
 }
