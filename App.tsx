@@ -1,15 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 //componentes
-import { 
-  StyleSheet, 
-  Text, View, 
-  TextInput, 
-  TouchableOpacity ,
+import {
+  StyleSheet,
+  Text, View,
+  TextInput,
+  TouchableOpacity,
   Dimensions,
   FlatList
 } from 'react-native';
 
+//estilos
 const styles = StyleSheet.create({
 
   container: {
@@ -50,11 +50,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 5
   },
-  scrollContainer: {
-
+  scrollContainer: {},
+  itemContainer: {
+    paddingVertical: 20,
+    borderBottomColor: '#e4e4e4',
+    borderBottomWidth: 1
   }
 });
 
+//tareas
 const tasks = [
   {
     title: 'Alimentar al perro',
@@ -80,23 +84,27 @@ interface Task {
 }
 
 export default function App() {
-  function renderItem({item}) {
-    return <Text style={styles.text}>{item.title}</Text>;
+  function renderItem({ item }: {item: Task}) {
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={styles.text}>{item.title}</Text>;
+      </View>
+    ) 
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
-          <TextInput placeholder='Ingresa nueva tarea' style={styles.textInput} />
-          <TouchableOpacity style={styles.addButton}>
-            <Text style={styles.whitetext}>Agregar</Text>
-          </TouchableOpacity>
+        <TextInput placeholder='Ingresa nueva tarea' style={styles.textInput} />
+        <TouchableOpacity style={styles.addButton}>
+          <Text style={styles.whitetext}>Agregar</Text>
+        </TouchableOpacity>
       </View>
-    <View style={styles.scrollContainer}>
-      <FlatList renderItem={renderItem} data={tasks}
-      />
-    </View>
+      <View style={styles.scrollContainer}>
+        <FlatList renderItem={renderItem} data={tasks}
+        />
+      </View>
     </View>
   );
 }
