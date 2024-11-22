@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 //componentes
 import { 
   StyleSheet, 
@@ -62,6 +63,11 @@ const tasks = [
   },
   {
     title: 'Salir a correr',
+    done: false,
+    date: new Date()
+  },
+  {
+    title: 'Nueva tarea',
     done: false,
     date: new Date()
   }
