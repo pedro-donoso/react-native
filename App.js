@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 //componentes
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
 
@@ -21,13 +21,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff'
   },
+  textInput: {
+    borderColor: '#6f6f6f',
+    borderWidth: 1
+  },
 });
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
-      <StatusBar style="auto" />
+      <View>
+          <TextInput style={styles.textInput} />
+      </View>
     </View>
   );
 }
