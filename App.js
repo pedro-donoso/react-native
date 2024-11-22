@@ -4,7 +4,8 @@ import {
   StyleSheet, 
   Text, View, 
   TextInput, 
-  TouchableOpacity 
+  TouchableOpacity ,
+  Dimensions
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -29,10 +30,15 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderColor: '#6f6f6f',
-    borderWidth: 1
+    borderWidth: 1,
+    width: Dimensions.get('screen').width * 0.6
   },
   inputContainer: {
-    margin: 20
+    margin: 20,
+    flexDirection: 'row'
+  },
+  addButton: {
+    backgroundColor: '#5897fb'
   }
 });
 
@@ -42,7 +48,7 @@ export default function App() {
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
           <TextInput style={styles.textInput} />
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.addButton}>
             <Text>Agregar</Text>
           </TouchableOpacity>
       </View>
