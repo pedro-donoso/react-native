@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#6f6f6f'
   },
+  textDone: {
+    fontSize: 16,
+    color: '#6f6f6f',
+    textDecorationLine: 'line-through'
+  },
   whitetext: {
     fontSize: 16,
     color: '#fff'
@@ -72,7 +77,7 @@ const tasks = [
   },
   {
     title: 'Nueva tarea',
-    done: false,
+    done: true,
     date: new Date()
   }
 ];
@@ -87,8 +92,11 @@ export default function App() {
   function renderItem({ item }: {item: Task}) {
     return (
       <View style={styles.itemContainer}>
-        <Text style={styles.text}>{item.title}</Text>
+        <TouchableOpacity>
+          <Text style={styles.text}>{item.title}</Text>
         <Text style={styles.text}>{item.date.toLocaleDateString()}</Text>
+        </TouchableOpacity>
+        
       </View>
     ) 
   }
