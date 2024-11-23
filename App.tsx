@@ -27,6 +27,7 @@ export default function App() {
     };
     tmp.push(newTask);   
     setTasks(tmp); 
+    setText('');
   }
 
   const markDone = () => {
