@@ -19,7 +19,12 @@ export default function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addTask = () => {
-    
+    const tmp = [...tasks];
+    const newTask = {
+      title: text,
+      done: false,
+      date: new Date()
+    }    
   }
 
   const markDone = () => {
