@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   View,
   Text,
@@ -35,8 +35,9 @@ export interface Task {
 }
 
 export default function App() {
+  const [text, setText] = useState('Hola mundo');
   const markDone = () => {
-    console.log('markdone');
+    console.log('markDone');
   };
 
   const deleteFunction = () => {
@@ -47,7 +48,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>Mis Tareas por hacer</Text>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Ingresa nueva tarea" style={styles.textInput} />
+        <TextInput placeholder="Ingresa nueva tarea" value={text} style={styles.textInput} />
         <TouchableOpacity style={styles.addButton}>
           <Text style={styles.whitetext}>Agregar</Text>
         </TouchableOpacity>
