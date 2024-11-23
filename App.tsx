@@ -24,7 +24,9 @@ export default function App() {
       title: text,
       done: false,
       date: new Date()
-    }    
+    };
+    tmp.push(newTask);   
+    setTasks(tmp); 
   }
 
   const markDone = () => {
