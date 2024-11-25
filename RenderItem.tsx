@@ -6,7 +6,7 @@ import {Task} from './App';
 interface ItemProps {
     item: Task;
     markDone: (task: Task) => void;
-    deleteFunction: () => void;
+    deleteFunction: (task: Task) => void;
 }
 
 export default function RenderItem({
@@ -21,13 +21,13 @@ export default function RenderItem({
             {item.title}
           </Text>
           <Text style={item.done ? styles.textDone : styles.text}>
-            {item.date.toLocaleDateString()}
+            {new Date(item.date).toLocaleDateString()}
           </Text>
         </TouchableOpacity>
-        {
-          //condicional
-          item.done && (
-            <TouchableOpacity onPress={deleteFunction} style={styles.removeButton}>
+        {item.done && (
+            <TouchableOpacity 
+            onPress={() => deleteFunction(item)} 
+            style={styles.removeButton}>
               <Text style={styles.whitetext}>Eliminar</Text>
             </TouchableOpacity>
           )
