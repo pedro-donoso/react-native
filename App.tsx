@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import styles from "./Styles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import RenderItem from "./RenderItem";
 export interface Task {
   title: string;
@@ -18,6 +19,30 @@ export default function App() {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const storeData = async (value: Task[]) => {
+   try {
+    await AsyncStorage.setItem("mytodo-tasks", JSON.stringify(value));
+   } catch (e) {
+    // saving error
+   }
+  };
+
+  const getData = async () => {
+   try {
+    const value = await AsyncStorage.getItem("mytodo-tasks");
+    if (value !== null) {
+     const tasksLocal = JSON.parse(value);
+     setTasks(tasksLocal);
+    }
+   } catch (e) {
+    // error reading value
+   }
+  };
+
+  useEffect(()=> {
+    getData();
+  }, []);
+
   const addTask = () => {
     const tmp = [...tasks];
     const newTask = {
@@ -27,6 +52,7 @@ export default function App() {
     };
     tmp.push(newTask);   
     setTasks(tmp); 
+    storeData(tmp);
     setText('');
   }
 
@@ -36,6 +62,7 @@ export default function App() {
     const todo = tasks[index];
     todo.done = !todo.done;
     setTasks(tmp);
+    storeData(tmp);
   };
 
   const deleteFunction = (task: Task) => {
@@ -43,6 +70,7 @@ export default function App() {
     const index = tmp.findIndex(el => el.title === task.title);
     tmp.splice(index, 1);
     setTasks(tmp);
+    storeData(tmp);
   };
 
   return (
