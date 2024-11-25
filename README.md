@@ -1,7 +1,7 @@
 ### 1. Creo proyecto expo con plantilla en blanco:
 
 ```
-npx create-expo-app@latest curso-react-native --template blank
+npx create-expo-app@latest nombre-proyecto --template blank
 ```
 
 ### 2. Instalo dependencias:
