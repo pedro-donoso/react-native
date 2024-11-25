@@ -1,3 +1,5 @@
+![tareas](https://github.com/user-attachments/assets/8c3275ab-8cc3-4430-9753-d221ed9267ac)
+
 ### 1. Creo proyecto expo con plantilla en blanco:
 
 ```
